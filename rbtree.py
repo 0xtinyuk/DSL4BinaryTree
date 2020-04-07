@@ -34,11 +34,12 @@ class RBTree:
         self.root = None
         self.index = -1
         self.action = ""
-        self.snapshot()
+        # self.snapshot(snap)
 
-    def snapshot(self):
-        self.index += 1
-        save_tree(self.root, "{}".format(self.index))
+    def snapshot(self, snap=True):
+        if snap:
+            self.index += 1
+            save_tree(self.root, "{}".format(self.index))
 
     def left_rotate(self, node):
         parent = node.parent
@@ -131,10 +132,10 @@ class RBTree:
                 return False
         pass
 
-    def check_node(self, node):
+    def check_node(self, node, snap=True):
         if self.root == node:
             self.root.set_black_node()
-            self.snapshot()
+            self.snapshot(snap)
             return
 
         if self.root == node.parent:
@@ -146,50 +147,50 @@ class RBTree:
 
         grand = node.parent.parent
         if not grand:
-            self.check_node(node.parent)
+            self.check_node(node.parent, snap)
             return
         if grand.left and grand.left.is_red_node() \
                 and grand.right and grand.right.is_red_node():
             grand.left.set_black_node()
             grand.right.set_black_node()
             grand.set_red_node()
-            self.snapshot()
-            self.check_node(grand)
+            self.snapshot(snap)
+            self.check_node(grand, snap)
             return
 
         parent = node.parent
         if parent.left == node and grand.right == node.parent:
             self.right_rotate(node.parent)
-            self.snapshot()
-            self.check_node(parent)
+            self.snapshot(snap)
+            self.check_node(parent, snap)
             return
         if parent.right == node and grand.left == node.parent:
             parent = node.parent
             self.left_rotate(node.parent)
-            self.snapshot()
-            self.check_node(parent)
+            self.snapshot(snap)
+            self.check_node(parent, snap)
             return
 
         parent.set_black_node()
         grand.set_red_node()
         if parent.left == node and grand.left == node.parent:
             self.right_rotate(grand)
-            self.snapshot()
+            self.snapshot(snap)
             return
         if parent.right == node and grand.right == node.parent:
             self.left_rotate(grand)
-            self.snapshot()
+            self.snapshot(snap)
             return
-        self.snapshot()
+        self.snapshot(snap)
 
-    def add_node(self, node):
+    def add_node(self, node, snap=True):
         self.action = 'insert node {}'.format(node.val)
         if self.insert_node(node):
-            self.snapshot()
-            self.check_node(node)
+            self.snapshot(snap)
+            self.check_node(node, snap)
         pass
 
-    def check_delete_node(self, node):
+    def check_delete_node(self, node, snap=True):
         if self.root == node or node.is_red_node():
             return
 
@@ -200,12 +201,12 @@ class RBTree:
                 self.left_rotate(node.parent)
             else:
                 self.right_rotate(node.parent)
-            self.snapshot()
+            self.snapshot(snap)
             node.parent.set_red_node()
             brother.set_black_node()
-            self.snapshot()
+            self.snapshot(snap)
             print("check node delete more ")
-            self.check_delete_node(node)
+            self.check_delete_node(node, snap)
             return
 
         all_none = not brother.left and not brother.right
@@ -216,9 +217,9 @@ class RBTree:
             brother.set_red_node()
             if node.parent.is_red_node():
                 node.parent.set_black_node()
-                self.snapshot()
+                self.snapshot(snap)
                 return
-            self.check_delete_node(node.parent)
+            self.check_delete_node(node.parent, snap)
             return
 
         brother_same_right_red = node_is_left \
@@ -238,7 +239,7 @@ class RBTree:
             else:
                 brother.left.set_black_node()
                 self.right_rotate(node.parent)
-            self.snapshot()
+            self.snapshot(snap)
             return True
 
         brother_diff_right_red = not node_is_left \
@@ -253,21 +254,21 @@ class RBTree:
             else:
                 brother.left.set_black_node()
                 self.right_rotate(brother)
-            self.snapshot()
-            self.check_delete_node(node)
+            self.snapshot(snap)
+            self.check_delete_node(node, snap)
             return True
 
-    def pre_delete_node(self, node):
+    def pre_delete_node(self, node, snap=True):
         post_node = self.get_post_node(node)
         if post_node:
             node.val, post_node.val = post_node.val, node.val
-            self.snapshot()
-            return self.pre_delete_node(post_node)
+            self.snapshot(snap)
+            return self.pre_delete_node(post_node, snap)
         pre_node = self.get_pre_node(node)
         if pre_node:
             pre_node.val, node.val = node.val, pre_node.val
-            self.snapshot()
-            return self.pre_delete_node(pre_node)
+            self.snapshot(snap)
+            return self.pre_delete_node(pre_node, snap)
         return node
 
     def get_pre_node(self, node):
@@ -300,26 +301,26 @@ class RBTree:
                 node = node.right
         return node
 
-    def delete_node(self, val):
+    def delete_node(self, val, snap=True):
         node = self.get_node(val)
         if not node:
             print("node error {}".format(val))
             return
         node = self.pre_delete_node(node)
-        self.check_delete_node(node)
-        self.real_delete_node(node)
+        self.check_delete_node(node, snap)
+        self.real_delete_node(node, snap)
         pass
 
-    def real_delete_node(self, node):
+    def real_delete_node(self, node, snap=True):
         if self.root == node:
             self.root = None
-            self.snapshot()
+            self.snapshot(snap)
             return
         if node.parent.left == node:
             node.parent.left = None
-            self.snapshot()
+            self.snapshot(snap)
             return
         if node.parent.right == node:
             node.parent.right = None
-            self.snapshot()
+            self.snapshot(snap)
         return

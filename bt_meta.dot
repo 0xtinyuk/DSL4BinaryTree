@@ -11,62 +11,62 @@
     edge[dir=black,arrowtail=empty]
 
 
-140725782830976[ label="{BinaryTreeModel|}"]
+140476590898272[ label="{BinaryTreeModel|}"]
 
-140725782834992[ label="{BinaryTree|+BinaryTreeNodes:OBJECT\l}"]
+140476590901680[ label="{BinaryTree|+BinaryTreeNodes:OBJECT\l}"]
 
-140725782838400[ label="{*BinaryTreeNode|}"]
+140476590905664[ label="{*BinaryTreeNode|}"]
 
-140725782841808[ label="{*SingleNode|}"]
+140476590897328[ label="{*SingleNode|}"]
 
-140725782845216[ label="{NULLNode|null}"]
+140476590909648[ label="{NULLNode|null}"]
 
-140725782848624[ label="{Node|+val:INT\l}"]
+140476590913056[ label="{Node|+val:INT\l}"]
 
-140725782840864[ label="{INTNode|+val:INT\l}"]
+140476590916464[ label="{INTNode|+val:INT\l}"]
 
-140725782850144[ label="{*Operation|}"]
+140476590919872[ label="{*Operation|}"]
 
-140725782853552[ label="{Insert|+val:INT\l}"]
+140476590923280[ label="{Insert|+val:INT\l}"]
 
-140725782856960[ label="{Delete|+val:INT\l}"]
+140476590926688[ label="{Delete|+val:INT\l}"]
 
-140725820655488[ label="{ID|}"]
+140476590717504[ label="{ID|}"]
 
-140725820654544[ label="{STRING|}"]
+140476590720912[ label="{STRING|}"]
 
-140725782626672[ label="{BOOL|}"]
+140476590724320[ label="{BOOL|}"]
 
-140725782664640[ label="{INT|}"]
+140476590727728[ label="{INT|}"]
 
-140725782667664[ label="{FLOAT|}"]
+140476590731136[ label="{FLOAT|}"]
 
-140725782670496[ label="{STRICTFLOAT|}"]
+140476590734544[ label="{STRICTFLOAT|}"]
 
-140725782673328[ label="{NUMBER|}"]
+140476590737952[ label="{NUMBER|}"]
 
-140725782676160[ label="{BASETYPE|}"]
+140476590741360[ label="{BASETYPE|}"]
 
-140725782678992[ label="{*OBJECT|}"]
+140476590744768[ label="{*OBJECT|}"]
 
 
 
-140725782830976 -> 140725782834992[arrowtail=diamond, dir=both, headlabel="BinaryTrees 0..*"]
-140725782830976 -> 140725782850144[arrowtail=diamond, dir=both, headlabel="Operations 0..*"]
-140725782838400 -> 140725782848624 [dir=back]
-140725782838400 -> 140725782840864 [dir=back]
-140725782841808 -> 140725782840864 [dir=back]
-140725782848624 -> 140725782834992[arrowtail=diamond, dir=both, headlabel="left "]
-140725782848624 -> 140725782834992[arrowtail=diamond, dir=both, headlabel="right "]
-140725782850144 -> 140725782853552 [dir=back]
-140725782850144 -> 140725782856960 [dir=back]
-140725782673328 -> 140725782670496 [dir=back]
-140725782673328 -> 140725782664640 [dir=back]
-140725782676160 -> 140725782673328 [dir=back]
-140725782676160 -> 140725782667664 [dir=back]
-140725782676160 -> 140725782626672 [dir=back]
-140725782676160 -> 140725820655488 [dir=back]
-140725782676160 -> 140725820654544 [dir=back]
-140725782678992 -> 140725782676160 [dir=back]
+140476590898272 -> 140476590901680[arrowtail=diamond, dir=both, headlabel="BinaryTrees 0..*"]
+140476590898272 -> 140476590919872[arrowtail=diamond, dir=both, headlabel="Operations 0..*"]
+140476590905664 -> 140476590913056 [dir=back]
+140476590905664 -> 140476590916464 [dir=back]
+140476590897328 -> 140476590916464 [dir=back]
+140476590913056 -> 140476590901680[arrowtail=diamond, dir=both, headlabel="left "]
+140476590913056 -> 140476590901680[arrowtail=diamond, dir=both, headlabel="right "]
+140476590919872 -> 140476590923280 [dir=back]
+140476590919872 -> 140476590926688 [dir=back]
+140476590737952 -> 140476590734544 [dir=back]
+140476590737952 -> 140476590727728 [dir=back]
+140476590741360 -> 140476590737952 [dir=back]
+140476590741360 -> 140476590731136 [dir=back]
+140476590741360 -> 140476590724320 [dir=back]
+140476590741360 -> 140476590717504 [dir=back]
+140476590741360 -> 140476590720912 [dir=back]
+140476590744768 -> 140476590741360 [dir=back]
 
 }

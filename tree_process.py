@@ -20,6 +20,7 @@ class BinaryTree(BSTree):
         self.index = -1
         self.action = ""
         self.ops = []
+        self.content = []
 
     def interpret(self, model):
         for t in model.BinaryTrees:
@@ -31,36 +32,35 @@ class BinaryTree(BSTree):
                 self.ops.append(('i', op.val))
             if op.__class__.__name__ == "Delete":
                 self.ops.append(('d', op.val))
+        print(self.content)
         print(self.ops)
         return
 
     def build(self, t):
         if t.BinaryTreeNodes.__class__.__name__ == 'Node':
+            self.content.append(t.BinaryTreeNodes.val)
             current = BinaryTreeNode(t.BinaryTreeNodes.val)
             current.left = self.build(t.BinaryTreeNodes.left)
             current.right = self.build(t.BinaryTreeNodes.right)
             return current
         if t.BinaryTreeNodes.__class__.__name__ == 'INTNode':
+            self.content.append(t.BinaryTreeNodes.val)
             return BinaryTreeNode(t.BinaryTreeNodes.val)
         if t.BinaryTreeNodes.__class__.__name__ == 'NULLNode':
             return None
 
 
-def main(debug=False):
-
+def getmodel(debug=False):
     this_folder = dirname(__file__)
-
     bt_mm = metamodel_from_file(
         join(this_folder, 'BinaryTree.tx'), debug=False)
     metamodel_export(bt_mm, join(this_folder, 'bt_meta.dot'))
-
-    bt_model = bt_mm.model_from_file(join(this_folder, 'test.bt'))
-    model_export(bt_model, join(this_folder, 'test.dot'))
-
+    bt_model = bt_mm.model_from_file(join(this_folder, 'temp.bt'))
+    model_export(bt_model, join(this_folder, 'temp.dot'))
     binarytree = BinaryTree()
     binarytree.interpret(bt_model)
-    binarytree.snapshot()
+    return binarytree
 
 
 if __name__ == "__main__":
-    main()
+    getmodel()

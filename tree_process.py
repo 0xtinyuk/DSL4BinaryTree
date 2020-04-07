@@ -19,11 +19,20 @@ class BinaryTree(BSTree):
         self.root = None
         self.index = -1
         self.action = ""
+        self.ops = []
 
     def interpret(self, model):
         for t in model.BinaryTrees:
             self.root = self.build(t)
-            return
+            break
+
+        for op in model.Operations:
+            if op.__class__.__name__ == "Insert":
+                self.ops.append(('i', op.val))
+            if op.__class__.__name__ == "Delete":
+                self.ops.append(('d', op.val))
+        print(self.ops)
+        return
 
     def build(self, t):
         if t.BinaryTreeNodes.__class__.__name__ == 'Node':

@@ -34,7 +34,7 @@ INTNode:
 
 
 Operation:
-    ( Insert | Delete| Search)
+    ( Insert | Delete )
 ;
 
 Insert:
@@ -43,8 +43,4 @@ Insert:
 
 Delete:
     'delete' val=INT
-;
-
-Search:
-    'search' val=INT
 ;

@@ -1,0 +1,50 @@
+BinaryTreeModel:
+    BinaryTrees*=BinaryTree
+    Operations*=Operation
+;
+
+BinaryTree:
+    ('{'
+        BinaryTreeNodes=BinaryTreeNode
+    '}') | (BinaryTreeNodes=SingleNode)
+;
+
+BinaryTreeNode:
+    NULLNode |  Node | INTNode
+;
+
+SingleNode:
+    NULLNode | INTNode
+;
+
+NULLNode:
+    'null'
+;
+
+Node:
+    val=INT
+    ':' (left=BinaryTree)?
+    ':' (right=BinaryTree)?
+;
+
+INTNode:
+    val=INT
+;
+
+
+
+Operation:
+    ( Insert | Delete| Search)
+;
+
+Insert:
+    'insert' val=INT
+;
+
+Delete:
+    'delete' val=INT
+;
+
+Search:
+    'search' val=INT
+;

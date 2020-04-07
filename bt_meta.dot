@@ -1,0 +1,75 @@
+
+    digraph textX {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+140710750302704[ label="{BinaryTreeModel|}"]
+
+140710750306720[ label="{BinaryTree|+BinaryTreeNodes:OBJECT\l}"]
+
+140710750310704[ label="{*BinaryTreeNode|}"]
+
+140710750314112[ label="{*SingleNode|}"]
+
+140710750317520[ label="{NULLNode|null}"]
+
+140710750309760[ label="{Node|+val:INT\l}"]
+
+140710750319984[ label="{INTNode|+val:INT\l}"]
+
+140710750323392[ label="{*Operation|}"]
+
+140710750326800[ label="{Insert|+val:INT\l}"]
+
+140710750330208[ label="{Delete|+val:INT\l}"]
+
+140710750333616[ label="{Search|+val:INT\l}"]
+
+140710790595648[ label="{ID|}"]
+
+140710790594704[ label="{STRING|}"]
+
+140710790600000[ label="{BOOL|}"]
+
+140710790603408[ label="{INT|}"]
+
+140710790606816[ label="{FLOAT|}"]
+
+140710790610224[ label="{STRICTFLOAT|}"]
+
+140710790613632[ label="{NUMBER|}"]
+
+140710790617040[ label="{BASETYPE|}"]
+
+140710790620448[ label="{*OBJECT|}"]
+
+
+
+140710750302704 -> 140710750306720[arrowtail=diamond, dir=both, headlabel="BinaryTrees 0..*"]
+140710750302704 -> 140710750323392[arrowtail=diamond, dir=both, headlabel="Operations 0..*"]
+140710750310704 -> 140710750309760 [dir=back]
+140710750310704 -> 140710750319984 [dir=back]
+140710750314112 -> 140710750319984 [dir=back]
+140710750309760 -> 140710750306720[arrowtail=diamond, dir=both, headlabel="left "]
+140710750309760 -> 140710750306720[arrowtail=diamond, dir=both, headlabel="right "]
+140710750323392 -> 140710750326800 [dir=back]
+140710750323392 -> 140710750330208 [dir=back]
+140710750323392 -> 140710750333616 [dir=back]
+140710790613632 -> 140710790610224 [dir=back]
+140710790613632 -> 140710790603408 [dir=back]
+140710790617040 -> 140710790613632 [dir=back]
+140710790617040 -> 140710790606816 [dir=back]
+140710790617040 -> 140710790600000 [dir=back]
+140710790617040 -> 140710790595648 [dir=back]
+140710790617040 -> 140710790594704 [dir=back]
+140710790620448 -> 140710790617040 [dir=back]
+
+}

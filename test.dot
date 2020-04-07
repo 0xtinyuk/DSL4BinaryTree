@@ -1,0 +1,52 @@
+
+    digraph textX {
+    fontname = "Bitstream Vera Sans"
+    fontsize = 8
+    node[
+        shape=record,
+        style=filled,
+        fillcolor=aliceblue
+    ]
+    nodesep = 0.3
+    edge[dir=black,arrowtail=empty]
+
+
+4638082960 -> 4638083392 [label="BinaryTrees:0" arrowtail=diamond dir=both]
+4638083392 -> 4638083584 [label="BinaryTreeNodes" arrowtail=diamond dir=both]
+4638083584 -> 4638083728 [label="left" arrowtail=diamond dir=both]
+4638083728 -> 4638083872 [label="BinaryTreeNodes" arrowtail=diamond dir=both]
+4638083872 -> 4638084016 [label="left" arrowtail=diamond dir=both]
+4638084016 -> 4638084160 [label="BinaryTreeNodes" arrowtail=diamond dir=both]
+4638084160[label="{:INTNode|+val:int=1\l}"]
+4638084016[label="{:BinaryTree|}"]
+4638083872 -> 4638084112 [label="right" arrowtail=diamond dir=both]
+4638084112 -> 4638084352 [label="BinaryTreeNodes" arrowtail=diamond dir=both]
+4638084352 -> 4638084496 [label="left" arrowtail=diamond dir=both]
+4638084496[label="{:BinaryTree|+BinaryTreeNodes:str='null'\l}"]
+4638084352 -> 4638084592 [label="right" arrowtail=diamond dir=both]
+4638084592 -> 4638084736 [label="BinaryTreeNodes" arrowtail=diamond dir=both]
+4638084736[label="{:INTNode|+val:int=4\l}"]
+4638084592[label="{:BinaryTree|}"]
+4638084352[label="{:Node|+val:int=3\l}"]
+4638084112[label="{:BinaryTree|}"]
+4638083872[label="{:Node|+val:int=2\l}"]
+4638083728[label="{:BinaryTree|}"]
+4638083584 -> 4638083824 [label="right" arrowtail=diamond dir=both]
+4638083824 -> 4638084304 [label="BinaryTreeNodes" arrowtail=diamond dir=both]
+4638084304 -> 4638084448 [label="left" arrowtail=diamond dir=both]
+4638084448[label="{:BinaryTree|+BinaryTreeNodes:str='null'\l}"]
+4638084304 -> 4638084832 [label="right" arrowtail=diamond dir=both]
+4638084832 -> 4638084976 [label="BinaryTreeNodes" arrowtail=diamond dir=both]
+4638084976[label="{:INTNode|+val:int=8\l}"]
+4638084832[label="{:BinaryTree|}"]
+4638084304[label="{:Node|+val:int=7\l}"]
+4638083824[label="{:BinaryTree|}"]
+4638083584[label="{:Node|+val:int=5\l}"]
+4638083392[label="{:BinaryTree|}"]
+4638082960 -> 4638083680 [label="Operations:0" arrowtail=diamond dir=both]
+4638083680[label="{:Insert|+val:int=6\l}"]
+4638082960 -> 4638083632 [label="Operations:1" arrowtail=diamond dir=both]
+4638083632[label="{:Insert|+val:int=10\l}"]
+4638082960[label="{:BinaryTreeModel|}"]
+
+}

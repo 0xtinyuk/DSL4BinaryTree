@@ -37,6 +37,8 @@ class BinaryTree(BSTree):
         return
 
     def build(self, t):
+        if t.__class__.__name__ == 'NoneType':
+            return None
         if t.BinaryTreeNodes.__class__.__name__ == 'Node':
             self.content.append(t.BinaryTreeNodes.val)
             current = BinaryTreeNode(t.BinaryTreeNodes.val)
